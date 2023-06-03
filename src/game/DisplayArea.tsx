@@ -1,9 +1,8 @@
 import React from "react";
 import { ReactElement } from "react";
-import { GameConfigProps, SquareProps } from "./Engine.tsx";
+import { GameConfigProps, SquareProps } from "./GameConfig";
 
-// export default function GameArea({boardConfig}: BoardConfigProps, {matrix}: MatrixProps) {
-export default function GameArea({ boardConfig, matrix }: GameConfigProps) {
+export default function DisplayArea({ boardConfig, matrix }: GameConfigProps) {
   // console.log("GameArea boardConfig", boardConfig);
   // console.log("GameArea matrix", matrix);
   var index = 0;
@@ -30,9 +29,8 @@ export default function GameArea({ boardConfig, matrix }: GameConfigProps) {
 }
 
 function Square({ value, size, cell }: SquareProps) {
-
   return (
-    <button className="square" style={{ height: `${size}px`, width: `${size}px`, background: `${cell.empty ? '' : 'black'}` }}>
+    <button className="square" style={{ height: `${size}px`, width: `${size}px`, background: `${cell.getColor()}` }}>
       {value}
     </button>
   );
